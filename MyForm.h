@@ -183,6 +183,11 @@ private: System::Windows::Forms::Label^ lblSzhat;
 private: System::Windows::Forms::TextBox^ tbSzhat;
 private: System::Windows::Forms::TextBox^ tbShat;
 private: System::Windows::Forms::TextBox^ tbType;
+private: System::Windows::Forms::Label^ label2;
+private: System::Windows::Forms::TextBox^ textBox1;
+private: System::Windows::Forms::Button^ btnAll;
+private: System::Windows::Forms::Button^ btnDelete;
+private: System::Windows::Forms::Button^ btnEdit;
 
 
 
@@ -254,6 +259,11 @@ private: System::Windows::Forms::TextBox^ tbType;
 			this->btnTaskMenu = (gcnew System::Windows::Forms::Button());
 			this->tbTask = (gcnew System::Windows::Forms::TextBox());
 			this->pnlBook = (gcnew System::Windows::Forms::Panel());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->btnAll = (gcnew System::Windows::Forms::Button());
+			this->btnDelete = (gcnew System::Windows::Forms::Button());
+			this->btnEdit = (gcnew System::Windows::Forms::Button());
 			this->btnToAdd = (gcnew System::Windows::Forms::Button());
 			this->SubjectName = (gcnew System::Windows::Forms::Label());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
@@ -479,6 +489,11 @@ private: System::Windows::Forms::TextBox^ tbType;
 			// 
 			// pnlBook
 			// 
+			this->pnlBook->Controls->Add(this->label2);
+			this->pnlBook->Controls->Add(this->textBox1);
+			this->pnlBook->Controls->Add(this->btnAll);
+			this->pnlBook->Controls->Add(this->btnDelete);
+			this->pnlBook->Controls->Add(this->btnEdit);
 			this->pnlBook->Controls->Add(this->btnToAdd);
 			this->pnlBook->Controls->Add(this->SubjectName);
 			this->pnlBook->Controls->Add(this->textBox2);
@@ -490,6 +505,71 @@ private: System::Windows::Forms::TextBox^ tbType;
 			this->pnlBook->Name = L"pnlBook";
 			this->pnlBook->Size = System::Drawing::Size(701, 632);
 			this->pnlBook->TabIndex = 11;
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 18, System::Drawing::FontStyle::Bold));
+			this->label2->Location = System::Drawing::Point(223, 182);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(237, 32);
+			this->label2->TabIndex = 24;
+			this->label2->Text = L"Название формата:";
+			// 
+			// textBox1
+			// 
+			this->textBox1->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 18, System::Drawing::FontStyle::Bold));
+			this->textBox1->Location = System::Drawing::Point(73, 218);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(549, 39);
+			this->textBox1->TabIndex = 23;
+			// 
+			// btnAll
+			// 
+			this->btnAll->BackColor = System::Drawing::SystemColors::Highlight;
+			this->btnAll->FlatAppearance->BorderSize = 0;
+			this->btnAll->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnAll->Font = (gcnew System::Drawing::Font(L"Segoe UI", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->btnAll->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+			this->btnAll->Location = System::Drawing::Point(73, 405);
+			this->btnAll->Name = L"btnAll";
+			this->btnAll->Size = System::Drawing::Size(549, 65);
+			this->btnAll->TabIndex = 22;
+			this->btnAll->Text = L"Просмотреть весь список";
+			this->btnAll->UseVisualStyleBackColor = false;
+			this->btnAll->Click += gcnew System::EventHandler(this, &MyForm::BtnAll_Click);
+			// 
+			// btnDelete
+			// 
+			this->btnDelete->BackColor = System::Drawing::SystemColors::Highlight;
+			this->btnDelete->FlatAppearance->BorderSize = 0;
+			this->btnDelete->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnDelete->Font = (gcnew System::Drawing::Font(L"Segoe UI", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->btnDelete->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+			this->btnDelete->Location = System::Drawing::Point(73, 334);
+			this->btnDelete->Name = L"btnDelete";
+			this->btnDelete->Size = System::Drawing::Size(549, 65);
+			this->btnDelete->TabIndex = 21;
+			this->btnDelete->Text = L"Удалить запись";
+			this->btnDelete->UseVisualStyleBackColor = false;
+			this->btnDelete->Click += gcnew System::EventHandler(this, &MyForm::BtnDelete_Click);
+			// 
+			// btnEdit
+			// 
+			this->btnEdit->BackColor = System::Drawing::SystemColors::Highlight;
+			this->btnEdit->FlatAppearance->BorderSize = 0;
+			this->btnEdit->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnEdit->Font = (gcnew System::Drawing::Font(L"Segoe UI", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->btnEdit->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+			this->btnEdit->Location = System::Drawing::Point(73, 263);
+			this->btnEdit->Name = L"btnEdit";
+			this->btnEdit->Size = System::Drawing::Size(549, 65);
+			this->btnEdit->TabIndex = 20;
+			this->btnEdit->Text = L"Изменить запись";
+			this->btnEdit->UseVisualStyleBackColor = false;
 			// 
 			// btnToAdd
 			// 
@@ -503,7 +583,7 @@ private: System::Windows::Forms::TextBox^ tbType;
 			this->btnToAdd->Name = L"btnToAdd";
 			this->btnToAdd->Size = System::Drawing::Size(549, 60);
 			this->btnToAdd->TabIndex = 19;
-			this->btnToAdd->Text = L"Добавить";
+			this->btnToAdd->Text = L"Добавить запись";
 			this->btnToAdd->UseVisualStyleBackColor = false;
 			this->btnToAdd->Click += gcnew System::EventHandler(this, &MyForm::btnToAdd_Click);
 			// 
@@ -511,7 +591,7 @@ private: System::Windows::Forms::TextBox^ tbType;
 			// 
 			this->SubjectName->AutoSize = true;
 			this->SubjectName->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 18, System::Drawing::FontStyle::Bold));
-			this->SubjectName->Location = System::Drawing::Point(202, 150);
+			this->SubjectName->Location = System::Drawing::Point(223, 54);
 			this->SubjectName->Name = L"SubjectName";
 			this->SubjectName->Size = System::Drawing::Size(238, 32);
 			this->SubjectName->TabIndex = 18;
@@ -520,7 +600,7 @@ private: System::Windows::Forms::TextBox^ tbType;
 			// textBox2
 			// 
 			this->textBox2->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 18, System::Drawing::FontStyle::Bold));
-			this->textBox2->Location = System::Drawing::Point(73, 189);
+			this->textBox2->Location = System::Drawing::Point(73, 86);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(549, 39);
 			this->textBox2->TabIndex = 17;
@@ -533,11 +613,11 @@ private: System::Windows::Forms::TextBox^ tbType;
 			this->btnSearch->Font = (gcnew System::Drawing::Font(L"Segoe UI", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->btnSearch->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->btnSearch->Location = System::Drawing::Point(73, 243);
+			this->btnSearch->Location = System::Drawing::Point(73, 130);
 			this->btnSearch->Name = L"btnSearch";
-			this->btnSearch->Size = System::Drawing::Size(549, 65);
+			this->btnSearch->Size = System::Drawing::Size(549, 49);
 			this->btnSearch->TabIndex = 15;
-			this->btnSearch->Text = L"Поиск";
+			this->btnSearch->Text = L"Поиск записи";
 			this->btnSearch->UseVisualStyleBackColor = false;
 			this->btnSearch->Click += gcnew System::EventHandler(this, &MyForm::btnSearch_Click);
 			// 
@@ -849,7 +929,7 @@ private: System::Windows::Forms::TextBox^ tbType;
 			// 
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
 			this->BackColor = System::Drawing::Color::WhiteSmoke;
-			this->ClientSize = System::Drawing::Size(707, 635);
+			this->ClientSize = System::Drawing::Size(715, 635);
 			this->Controls->Add(this->pnlShowResult);
 			this->Controls->Add(this->pnlAdd);
 			this->Controls->Add(this->pnlBook);
@@ -886,7 +966,7 @@ private: System::Windows::Forms::TextBox^ tbType;
 	String^ ChosenType;
 	String^ specToFind;
 
-	void FillInfo(String^ chosenSpec) {// поиск по параметру
+	void FillInfo(String^ chosenSpec) {
 		StreamReader^ sr = gcnew StreamReader("data1.bin");
 
 		String^ lineReader;
@@ -952,7 +1032,7 @@ private: System::Windows::Forms::TextBox^ tbType;
 
 	}
 
-	void FormatCount() { //переписать полностью функцию (иначе не работает)
+	void FormatCount() { 
 		String^ lineReader;
 		int rust = 0;
 		int vect = 0;
@@ -998,6 +1078,57 @@ private: System::Windows::Forms::TextBox^ tbType;
 		
 	}
 
+	void OutputAll() {
+		StreamReader^ sr = gcnew StreamReader("data1.bin");
+
+		String^ lineReader;
+		String^ FileRash;
+		String^ FileName;
+		String^ FileProg;
+		String^ FileColor;
+		String^ FileShat;
+		String^ FileType;
+
+
+		lineReader = sr->ReadLine();
+		while (lineReader) {
+				FileRash += lineReader + "\r\n";
+				FileName += sr->ReadLine() + "\r\n";
+				FileProg += sr->ReadLine() + "\r\n";
+				FileColor += sr->ReadLine() + "\r\n";
+				FileShat += sr->ReadLine() + "\r\n";
+				FileType += sr->ReadLine() + "\r\n";
+			
+			
+			lineReader = sr->ReadLine();
+		}
+		sr->Close();
+
+		StreamReader^ sr2 = gcnew StreamReader("data2.bin");
+		lineReader = sr2->ReadLine();
+		while (lineReader) {
+			
+				FileRash += lineReader + "\r\n";
+				FileName += sr2->ReadLine() + "\r\n";
+				FileProg += sr2->ReadLine() + "\r\n";
+				FileColor += sr2->ReadLine() + "\r\n";
+				FileShat += sr2->ReadLine() + "\r\n";
+				FileType += sr2->ReadLine() + "\r\n";
+			
+			lineReader = sr2->ReadLine();
+		}
+		sr2->Close();
+
+
+		tbName->Text = FileRash;
+		tbRash->Text = FileName;
+		tbProg->Text = FileProg;
+		tbCol->Text = FileColor;
+		tbShat->Text = FileShat;
+		tbType->Text = FileType;
+	}
+
+	
 private: System::Void btnBookOpen_Click(System::Object^ sender, System::EventArgs^ e) {
 	pnlBook->Show();
 	FormatCount();
@@ -1078,7 +1209,7 @@ private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e)
 					if (!tbSzhat->TextLength) {
 						MessageBox::Show("Сжатие не указано", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 					}
-					    else { // добавить сортировку по расширению
+					    else { 
 						if (ChosenType == "Растровый") {
 
 						
@@ -1157,6 +1288,17 @@ private: System::Void btnResultsToBook_Click(System::Object^ sender, System::Eve
 	tbType->Text = "";
 	pnlShowResult->Hide();
 	pnlBook->Show();
+}
+private: System::Void BtnAll_Click(System::Object^ sender, System::EventArgs^ e) {
+	OutputAll();
+	pnlBook->Hide();
+	pnlShowResult->Show();
+}
+private: System::Void BtnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
+	specToFind = textBox1->Text;
+	
+	pnlBook->Hide();
+	pnlShowResult->Show();
 }
 };
 }
