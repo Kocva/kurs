@@ -6,6 +6,7 @@
 #include <vector>
 #include <set>
 #include <algorithm>
+#include <cstdio>
 
 namespace Kks {
 
@@ -31,6 +32,7 @@ namespace Kks {
 			pnlTask->Hide();
 			pnlBook->Hide();
 			pnlAdd->Hide();
+			pnlEdit->Hide();
 			pnlShowResult->Hide();
 			tbHowTo->Enabled = false;
 			tbTask->Enabled = false;
@@ -188,6 +190,24 @@ private: System::Windows::Forms::TextBox^ textBox1;
 private: System::Windows::Forms::Button^ btnAll;
 private: System::Windows::Forms::Button^ btnDelete;
 private: System::Windows::Forms::Button^ btnEdit;
+private: System::Windows::Forms::Panel^ pnlEdit;
+
+private: System::Windows::Forms::Label^ lblSzhat1;
+private: System::Windows::Forms::TextBox^ tbSzhat1;
+private: System::Windows::Forms::Label^ lblColor1;
+private: System::Windows::Forms::TextBox^ tbColor1;
+private: System::Windows::Forms::CheckBox^ typeVect1;
+private: System::Windows::Forms::CheckBox^ typeRastr1;
+private: System::Windows::Forms::Label^ lblType1;
+private: System::Windows::Forms::TextBox^ tbProgramsSup1;
+private: System::Windows::Forms::Label^ lblPrograms1;
+private: System::Windows::Forms::TextBox^ tbRushFile1;
+private: System::Windows::Forms::Label^ lblRush1;
+private: System::Windows::Forms::Label^ lblName1;
+private: System::Windows::Forms::TextBox^ tbFormName1;
+private: System::Windows::Forms::Button^ btnEditForm;
+private: System::Windows::Forms::Button^ btnEditFormMenu1;
+
 
 
 
@@ -295,11 +315,28 @@ private: System::Windows::Forms::Button^ btnEdit;
 			this->tbRash = (gcnew System::Windows::Forms::TextBox());
 			this->tbName = (gcnew System::Windows::Forms::TextBox());
 			this->btnResultsToBook = (gcnew System::Windows::Forms::Button());
+			this->pnlEdit = (gcnew System::Windows::Forms::Panel());
+			this->lblSzhat1 = (gcnew System::Windows::Forms::Label());
+			this->tbSzhat1 = (gcnew System::Windows::Forms::TextBox());
+			this->lblColor1 = (gcnew System::Windows::Forms::Label());
+			this->tbColor1 = (gcnew System::Windows::Forms::TextBox());
+			this->typeVect1 = (gcnew System::Windows::Forms::CheckBox());
+			this->typeRastr1 = (gcnew System::Windows::Forms::CheckBox());
+			this->lblType1 = (gcnew System::Windows::Forms::Label());
+			this->tbProgramsSup1 = (gcnew System::Windows::Forms::TextBox());
+			this->lblPrograms1 = (gcnew System::Windows::Forms::Label());
+			this->tbRushFile1 = (gcnew System::Windows::Forms::TextBox());
+			this->lblRush1 = (gcnew System::Windows::Forms::Label());
+			this->lblName1 = (gcnew System::Windows::Forms::Label());
+			this->tbFormName1 = (gcnew System::Windows::Forms::TextBox());
+			this->btnEditForm = (gcnew System::Windows::Forms::Button());
+			this->btnEditFormMenu1 = (gcnew System::Windows::Forms::Button());
 			this->pnlHowTo->SuspendLayout();
 			this->pnlTask->SuspendLayout();
 			this->pnlBook->SuspendLayout();
 			this->pnlAdd->SuspendLayout();
 			this->pnlShowResult->SuspendLayout();
+			this->pnlEdit->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// btnAbout
@@ -570,6 +607,7 @@ private: System::Windows::Forms::Button^ btnEdit;
 			this->btnEdit->TabIndex = 20;
 			this->btnEdit->Text = L"Изменить запись";
 			this->btnEdit->UseVisualStyleBackColor = false;
+			this->btnEdit->Click += gcnew System::EventHandler(this, &MyForm::BtnEdit_Click);
 			// 
 			// btnToAdd
 			// 
@@ -674,9 +712,9 @@ private: System::Windows::Forms::Button^ btnEdit;
 			this->pnlAdd->Controls->Add(this->tbFormName);
 			this->pnlAdd->Controls->Add(this->btnAdd);
 			this->pnlAdd->Controls->Add(this->btnAddMenu);
-			this->pnlAdd->Location = System::Drawing::Point(2, 0);
+			this->pnlAdd->Location = System::Drawing::Point(967, 0);
 			this->pnlAdd->Name = L"pnlAdd";
-			this->pnlAdd->Size = System::Drawing::Size(701, 632);
+			this->pnlAdd->Size = System::Drawing::Size(142, 632);
 			this->pnlAdd->TabIndex = 13;
 			// 
 			// lblSzhat
@@ -846,9 +884,9 @@ private: System::Windows::Forms::Button^ btnEdit;
 			this->pnlShowResult->Controls->Add(this->tbRash);
 			this->pnlShowResult->Controls->Add(this->tbName);
 			this->pnlShowResult->Controls->Add(this->btnResultsToBook);
-			this->pnlShowResult->Location = System::Drawing::Point(2, 1);
+			this->pnlShowResult->Location = System::Drawing::Point(1143, 1);
 			this->pnlShowResult->Name = L"pnlShowResult";
-			this->pnlShowResult->Size = System::Drawing::Size(701, 632);
+			this->pnlShowResult->Size = System::Drawing::Size(135, 632);
 			this->pnlShowResult->TabIndex = 14;
 			// 
 			// tbType
@@ -925,11 +963,192 @@ private: System::Windows::Forms::Button^ btnEdit;
 			this->btnResultsToBook->UseVisualStyleBackColor = false;
 			this->btnResultsToBook->Click += gcnew System::EventHandler(this, &MyForm::btnResultsToBook_Click);
 			// 
+			// pnlEdit
+			// 
+			this->pnlEdit->Controls->Add(this->lblSzhat1);
+			this->pnlEdit->Controls->Add(this->tbSzhat1);
+			this->pnlEdit->Controls->Add(this->lblColor1);
+			this->pnlEdit->Controls->Add(this->tbColor1);
+			this->pnlEdit->Controls->Add(this->typeVect1);
+			this->pnlEdit->Controls->Add(this->typeRastr1);
+			this->pnlEdit->Controls->Add(this->lblType1);
+			this->pnlEdit->Controls->Add(this->tbProgramsSup1);
+			this->pnlEdit->Controls->Add(this->lblPrograms1);
+			this->pnlEdit->Controls->Add(this->tbRushFile1);
+			this->pnlEdit->Controls->Add(this->lblRush1);
+			this->pnlEdit->Controls->Add(this->lblName1);
+			this->pnlEdit->Controls->Add(this->tbFormName1);
+			this->pnlEdit->Controls->Add(this->btnEditForm);
+			this->pnlEdit->Controls->Add(this->btnEditFormMenu1);
+			this->pnlEdit->Location = System::Drawing::Point(1299, 0);
+			this->pnlEdit->Name = L"pnlEdit";
+			this->pnlEdit->Size = System::Drawing::Size(162, 633);
+			this->pnlEdit->TabIndex = 15;
+			// 
+			// lblSzhat1
+			// 
+			this->lblSzhat1->AutoSize = true;
+			this->lblSzhat1->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 18, System::Drawing::FontStyle::Bold));
+			this->lblSzhat1->Location = System::Drawing::Point(11, 250);
+			this->lblSzhat1->Name = L"lblSzhat1";
+			this->lblSzhat1->Size = System::Drawing::Size(99, 32);
+			this->lblSzhat1->TabIndex = 39;
+			this->lblSzhat1->Text = L"Сжатие";
+			// 
+			// tbSzhat1
+			// 
+			this->tbSzhat1->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 18, System::Drawing::FontStyle::Bold));
+			this->tbSzhat1->Location = System::Drawing::Point(298, 243);
+			this->tbSzhat1->Name = L"tbSzhat1";
+			this->tbSzhat1->Size = System::Drawing::Size(393, 39);
+			this->tbSzhat1->TabIndex = 38;
+			// 
+			// lblColor1
+			// 
+			this->lblColor1->AutoSize = true;
+			this->lblColor1->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 18, System::Drawing::FontStyle::Bold));
+			this->lblColor1->Location = System::Drawing::Point(11, 192);
+			this->lblColor1->Name = L"lblColor1";
+			this->lblColor1->Size = System::Drawing::Size(287, 32);
+			this->lblColor1->TabIndex = 37;
+			this->lblColor1->Text = L"Цветовые возможности";
+			// 
+			// tbColor1
+			// 
+			this->tbColor1->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 18, System::Drawing::FontStyle::Bold));
+			this->tbColor1->Location = System::Drawing::Point(298, 189);
+			this->tbColor1->Name = L"tbColor1";
+			this->tbColor1->Size = System::Drawing::Size(393, 39);
+			this->tbColor1->TabIndex = 36;
+			// 
+			// typeVect1
+			// 
+			this->typeVect1->AutoSize = true;
+			this->typeVect1->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->typeVect1->Location = System::Drawing::Point(563, 307);
+			this->typeVect1->Name = L"typeVect1";
+			this->typeVect1->Size = System::Drawing::Size(128, 29);
+			this->typeVect1->TabIndex = 32;
+			this->typeVect1->Text = L"Векторный";
+			this->typeVect1->UseVisualStyleBackColor = true;
+			this->typeVect1->CheckedChanged += gcnew System::EventHandler(this, &MyForm::TypeVect1_CheckedChanged);
+			// 
+			// typeRastr1
+			// 
+			this->typeRastr1->AutoSize = true;
+			this->typeRastr1->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->typeRastr1->Location = System::Drawing::Point(298, 307);
+			this->typeRastr1->Name = L"typeRastr1";
+			this->typeRastr1->Size = System::Drawing::Size(126, 29);
+			this->typeRastr1->TabIndex = 30;
+			this->typeRastr1->Text = L"Растровый";
+			this->typeRastr1->UseVisualStyleBackColor = true;
+			this->typeRastr1->CheckedChanged += gcnew System::EventHandler(this, &MyForm::TypeRastr1_CheckedChanged);
+			// 
+			// lblType1
+			// 
+			this->lblType1->AutoSize = true;
+			this->lblType1->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 18, System::Drawing::FontStyle::Bold));
+			this->lblType1->Location = System::Drawing::Point(11, 302);
+			this->lblType1->Name = L"lblType1";
+			this->lblType1->Size = System::Drawing::Size(54, 32);
+			this->lblType1->TabIndex = 23;
+			this->lblType1->Text = L"Тип";
+			// 
+			// tbProgramsSup1
+			// 
+			this->tbProgramsSup1->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 18, System::Drawing::FontStyle::Bold));
+			this->tbProgramsSup1->Location = System::Drawing::Point(298, 140);
+			this->tbProgramsSup1->Name = L"tbProgramsSup1";
+			this->tbProgramsSup1->Size = System::Drawing::Size(393, 39);
+			this->tbProgramsSup1->TabIndex = 22;
+			// 
+			// lblPrograms1
+			// 
+			this->lblPrograms1->AutoSize = true;
+			this->lblPrograms1->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 18, System::Drawing::FontStyle::Bold));
+			this->lblPrograms1->Location = System::Drawing::Point(11, 143);
+			this->lblPrograms1->Name = L"lblPrograms1";
+			this->lblPrograms1->Size = System::Drawing::Size(267, 32);
+			this->lblPrograms1->TabIndex = 21;
+			this->lblPrograms1->Text = L"Поддерж. программы";
+			// 
+			// tbRushFile1
+			// 
+			this->tbRushFile1->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 18, System::Drawing::FontStyle::Bold));
+			this->tbRushFile1->Location = System::Drawing::Point(298, 40);
+			this->tbRushFile1->Name = L"tbRushFile1";
+			this->tbRushFile1->Size = System::Drawing::Size(393, 39);
+			this->tbRushFile1->TabIndex = 20;
+			// 
+			// lblRush1
+			// 
+			this->lblRush1->AutoSize = true;
+			this->lblRush1->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 18, System::Drawing::FontStyle::Bold));
+			this->lblRush1->Location = System::Drawing::Point(11, 47);
+			this->lblRush1->Name = L"lblRush1";
+			this->lblRush1->Size = System::Drawing::Size(232, 32);
+			this->lblRush1->TabIndex = 19;
+			this->lblRush1->Text = L"Расширение файла";
+			// 
+			// lblName1
+			// 
+			this->lblName1->AutoSize = true;
+			this->lblName1->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 18, System::Drawing::FontStyle::Bold));
+			this->lblName1->Location = System::Drawing::Point(11, 97);
+			this->lblName1->Name = L"lblName1";
+			this->lblName1->Size = System::Drawing::Size(231, 32);
+			this->lblName1->TabIndex = 18;
+			this->lblName1->Text = L"Название формата";
+			// 
+			// tbFormName1
+			// 
+			this->tbFormName1->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 18, System::Drawing::FontStyle::Bold));
+			this->tbFormName1->Location = System::Drawing::Point(298, 90);
+			this->tbFormName1->Name = L"tbFormName1";
+			this->tbFormName1->Size = System::Drawing::Size(393, 39);
+			this->tbFormName1->TabIndex = 17;
+			// 
+			// btnEditForm
+			// 
+			this->btnEditForm->BackColor = System::Drawing::Color::DarkRed;
+			this->btnEditForm->FlatAppearance->BorderSize = 0;
+			this->btnEditForm->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnEditForm->Font = (gcnew System::Drawing::Font(L"Segoe UI", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->btnEditForm->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+			this->btnEditForm->Location = System::Drawing::Point(77, 506);
+			this->btnEditForm->Name = L"btnEditForm";
+			this->btnEditForm->Size = System::Drawing::Size(549, 58);
+			this->btnEditForm->TabIndex = 15;
+			this->btnEditForm->Text = L"Изменить";
+			this->btnEditForm->UseVisualStyleBackColor = false;
+			this->btnEditForm->Click += gcnew System::EventHandler(this, &MyForm::BtnEditForm_Click);
+			// 
+			// btnEditFormMenu1
+			// 
+			this->btnEditFormMenu1->BackColor = System::Drawing::SystemColors::Highlight;
+			this->btnEditFormMenu1->FlatAppearance->BorderSize = 0;
+			this->btnEditFormMenu1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnEditFormMenu1->Font = (gcnew System::Drawing::Font(L"Segoe UI", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->btnEditFormMenu1->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+			this->btnEditFormMenu1->Location = System::Drawing::Point(160, 570);
+			this->btnEditFormMenu1->Name = L"btnEditFormMenu1";
+			this->btnEditFormMenu1->Size = System::Drawing::Size(382, 53);
+			this->btnEditFormMenu1->TabIndex = 6;
+			this->btnEditFormMenu1->Text = L"Назад";
+			this->btnEditFormMenu1->UseVisualStyleBackColor = false;
+			this->btnEditFormMenu1->Click += gcnew System::EventHandler(this, &MyForm::BtnEditFormMenu1_Click);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
 			this->BackColor = System::Drawing::Color::WhiteSmoke;
-			this->ClientSize = System::Drawing::Size(715, 635);
+			this->ClientSize = System::Drawing::Size(1473, 640);
+			this->Controls->Add(this->pnlEdit);
 			this->Controls->Add(this->pnlShowResult);
 			this->Controls->Add(this->pnlAdd);
 			this->Controls->Add(this->pnlBook);
@@ -956,6 +1175,8 @@ private: System::Windows::Forms::Button^ btnEdit;
 			this->pnlAdd->PerformLayout();
 			this->pnlShowResult->ResumeLayout(false);
 			this->pnlShowResult->PerformLayout();
+			this->pnlEdit->ResumeLayout(false);
+			this->pnlEdit->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -964,6 +1185,7 @@ private: System::Windows::Forms::Button^ btnEdit;
 
 	bool isShown = false;
 	String^ ChosenType;
+	String^ ChosenType1;
 	String^ specToFind;
 
 	void FillInfo(String^ chosenSpec) {
@@ -1050,19 +1272,19 @@ private: System::Windows::Forms::Button^ btnEdit;
 		}
 		srData->Close();
 
-		StreamReader^ srtrash = gcnew StreamReader("data2.bin");
-		lineReader = srtrash->ReadLine();
+		StreamReader^ srdata2 = gcnew StreamReader("data2.bin");
+		lineReader = srdata2->ReadLine();
 		while (lineReader) {
-			srtrash->ReadLine();
-			srtrash->ReadLine();
-			srtrash->ReadLine();
-			srtrash->ReadLine();
-			srtrash->ReadLine();
-			lineReader = srtrash->ReadLine();
+			srdata2->ReadLine();
+			srdata2->ReadLine();
+			srdata2->ReadLine();
+			srdata2->ReadLine();
+			srdata2->ReadLine();
+			lineReader = srdata2->ReadLine();
 			vect += 1;
 
 		}
-		srtrash->Close();
+		srdata2->Close();
 
 		if (vect > rust) {
 			FormatName->Text = "векторный";
@@ -1128,7 +1350,293 @@ private: System::Windows::Forms::Button^ btnEdit;
 		tbType->Text = FileType;
 	}
 
-	
+	void Delete(String^ chosenSpec) {
+		
+		StreamReader^ sr = gcnew StreamReader("data1.bin");
+		StreamReader^ sr2 = gcnew StreamReader("data1.bin");
+		StreamReader^ sr3 = gcnew StreamReader("data1.bin");
+		StreamReader^ sr4 = gcnew StreamReader("data1.bin");
+		StreamWriter^ sw = gcnew StreamWriter("data3.bin");
+		StreamWriter^ sw2 = gcnew StreamWriter("data4.bin");
+		String^ lineReader;
+		String^ lineReader2;
+		String^ lineReader3;
+		String^ lineReader4;
+		lineReader = sr->ReadLine();
+		while (lineReader) {
+			
+			if (lineReader == chosenSpec) {
+				sr->ReadLine();
+				sr->ReadLine();
+				sr->ReadLine();
+				sr->ReadLine();
+				lineReader = sr->ReadLine();
+				sr2->ReadLine();
+				sr2->ReadLine();
+				sr2->ReadLine();
+				sr2->ReadLine();
+				lineReader2 = sr2->ReadLine();
+			}
+			else {
+				lineReader2 = sr2->ReadLine();
+				lineReader = sr->ReadLine();
+				if (lineReader != chosenSpec) {
+					sw->WriteLine(lineReader2);
+					sw->Flush();
+				}
+			}
+			
+		}
+		sr->Close();
+		sr2->Close();
+		sw->Close();
+		
+
+
+		lineReader3 = sr3->ReadLine();
+		while (lineReader3) {
+
+			if (lineReader3 == chosenSpec) {
+				sr3->ReadLine();
+				sr3->ReadLine();
+				sr3->ReadLine();
+				sr3->ReadLine();
+				lineReader3 = sr3->ReadLine();
+				sr4->ReadLine();
+				sr4->ReadLine();
+				sr4->ReadLine();
+				sr4->ReadLine();
+				lineReader4 = sr4->ReadLine();
+			}
+			else {
+				lineReader4 = sr4->ReadLine();
+				lineReader3 = sr3->ReadLine();
+				if (lineReader3 != chosenSpec) {
+					sw2->WriteLine(lineReader4);
+					sw2->Flush();
+				}
+			}
+
+		}
+		sr3->Close();
+		sr4->Close();
+		sw2->Close();
+		string file_name1 = "data1.bin";
+		string file_name2 = "data2.bin";
+		string old_file_name1 = "data3.bin";
+		string old_file_name2 = "data4.bin";
+		remove(file_name2.c_str());
+		rename(old_file_name2.c_str(), file_name2.c_str());
+		remove(file_name1.c_str());
+		rename(old_file_name1.c_str(), file_name1.c_str());
+	}
+
+	void edit(String^ chosenSpec) {
+		StreamReader^ sr = gcnew StreamReader("data1.bin");
+		StreamReader^ sr2 = gcnew StreamReader("data1.bin");
+		StreamReader^ sr3 = gcnew StreamReader("data2.bin");
+		StreamReader^ sr4 = gcnew StreamReader("data2.bin");
+		StreamWriter^ sw = gcnew StreamWriter("data3.bin");
+		StreamWriter^ sw2 = gcnew StreamWriter("data4.bin");
+		String^ lineReader;
+		String^ lineReader2;
+		String^ lineReader3;
+		String^ lineReader4;
+		lineReader = sr->ReadLine();
+		while (lineReader) {
+
+			if (lineReader == chosenSpec) {
+				sr->ReadLine();
+				sr->ReadLine();
+				sr->ReadLine();
+				sr->ReadLine();
+				lineReader = sr->ReadLine();
+				if (ChosenType1 == "Растровый") {
+					sw->WriteLine(tbRushFile1->Text);
+					sw->WriteLine(tbFormName1->Text);
+					sw->WriteLine(tbProgramsSup1->Text);
+					sw->WriteLine(tbColor1->Text);
+					sw->WriteLine(tbSzhat1->Text);
+					sw->WriteLine(ChosenType1);
+					sw->Flush();
+				}
+				else {
+					sw2->WriteLine(tbRushFile1->Text);
+					sw2->WriteLine(tbFormName1->Text);
+					sw2->WriteLine(tbProgramsSup1->Text);
+					sw2->WriteLine(tbColor1->Text);
+					sw2->WriteLine(tbSzhat1->Text);
+					sw2->WriteLine(ChosenType1);
+					sw2->Flush();
+				}
+				sr2->ReadLine();
+				sr2->ReadLine();
+				sr2->ReadLine();
+				sr2->ReadLine();
+				lineReader2 = sr2->ReadLine();
+			}
+			else {
+				lineReader2 = sr2->ReadLine();
+				lineReader = sr->ReadLine();
+				if (lineReader != chosenSpec) {
+					sw->WriteLine(lineReader2);
+					sw->Flush();
+				}
+			}
+
+		}
+		sr->Close();
+		sr2->Close();
+		
+
+
+
+		lineReader3 = sr3->ReadLine();
+		while (lineReader3) {
+
+			if (lineReader3 == chosenSpec) {
+				sr3->ReadLine();
+				sr3->ReadLine();
+				sr3->ReadLine();
+				sr3->ReadLine();
+				lineReader3 = sr3->ReadLine();
+				if (ChosenType1 == "Растровый") {
+					sw->WriteLine(tbRushFile1->Text);
+					sw->WriteLine(tbFormName1->Text);
+					sw->WriteLine(tbProgramsSup1->Text);
+					sw->WriteLine(tbColor1->Text);
+					sw->WriteLine(tbSzhat1->Text);
+					sw->WriteLine(ChosenType1);
+					sw->Flush();
+				}
+				else {
+					sw2->WriteLine(tbRushFile1->Text);
+					sw2->WriteLine(tbFormName1->Text);
+					sw2->WriteLine(tbProgramsSup1->Text);
+					sw2->WriteLine(tbColor1->Text);
+					sw2->WriteLine(tbSzhat1->Text);
+					sw2->WriteLine(ChosenType1);
+					sw2->Flush();
+				}
+				sr4->ReadLine();
+				sr4->ReadLine();
+				sr4->ReadLine();
+				sr4->ReadLine();
+				lineReader4 = sr4->ReadLine();
+			}
+			else {
+				lineReader4 = sr4->ReadLine();
+				lineReader3 = sr3->ReadLine();
+				if (lineReader3 != chosenSpec) {
+					sw2->WriteLine(lineReader4);
+					sw2->Flush();
+				}
+			}
+
+		}
+		sr3->Close();
+		sr4->Close();
+		sw->Close();
+		sw2->Close();
+		string file_name1 = "data1.bin";
+		string file_name2 = "data2.bin";
+		string old_file_name1 = "data3.bin";
+		string old_file_name2 = "data4.bin";
+		remove(file_name2.c_str());
+		rename(old_file_name2.c_str(), file_name2.c_str());
+		remove(file_name1.c_str());
+		rename(old_file_name1.c_str(), file_name1.c_str());
+
+	}
+
+
+	void found(String^ chosenSpec) {
+		StreamReader^ sr = gcnew StreamReader("data1.bin");
+		StreamReader^ sr2 = gcnew StreamReader("data1.bin");
+		StreamReader^ sr3 = gcnew StreamReader("data2.bin");
+		StreamReader^ sr4 = gcnew StreamReader("data2.bin");
+		String^ lineReader;
+		String^ lineReader2;
+		String^ lineReader3;
+		String^ lineReader4;
+		lineReader = sr->ReadLine();
+		while (lineReader) {
+
+			if (lineReader == chosenSpec) {
+				sr->ReadLine();
+				sr->ReadLine();
+				sr->ReadLine();
+				sr->ReadLine();
+				lineReader = sr->ReadLine();
+				tbRushFile1->Text = lineReader2;
+				lineReader2 = sr2->ReadLine();
+				tbFormName1->Text = lineReader2;
+				lineReader2 = sr2->ReadLine();
+				tbProgramsSup1->Text = lineReader2;
+				lineReader2 = sr2->ReadLine();
+				tbColor1->Text = lineReader2;
+				lineReader2 = sr2->ReadLine();
+				tbSzhat1->Text = lineReader2;
+				lineReader2 = sr2->ReadLine();
+				if (lineReader2 == "Растровый") {
+					typeRastr1->Checked = true;
+				}
+				else {
+					typeVect1->Checked = true;
+				}
+			}
+			else {
+				lineReader2 = sr2->ReadLine();
+				lineReader = sr->ReadLine();
+				
+			}
+
+		}
+		sr->Close();
+		sr2->Close();
+		
+
+
+
+		lineReader3 = sr3->ReadLine();
+		while (lineReader3) {
+
+			if (lineReader3 == chosenSpec) {
+				sr3->ReadLine();
+				sr3->ReadLine();
+				sr3->ReadLine();
+				sr3->ReadLine();
+				lineReader3 = sr3->ReadLine();
+				
+				tbRushFile1->Text = lineReader4;
+				lineReader4 = sr4->ReadLine();
+				tbFormName1->Text = lineReader4;
+				lineReader4 = sr4->ReadLine();
+				tbProgramsSup1->Text = lineReader4;
+				lineReader4 = sr4->ReadLine();
+				tbColor1->Text = lineReader4;
+				lineReader4 = sr4->ReadLine();
+				tbSzhat1->Text = lineReader4;
+				lineReader4 = sr4->ReadLine();
+				if (lineReader4 == "Растровый") {
+					typeRastr1->Checked = true;
+				}
+				else {
+					typeVect1->Checked = true;
+				}
+			}
+			else {
+				lineReader4 = sr4->ReadLine();
+				lineReader3 = sr3->ReadLine();
+				
+			}
+
+		}
+		sr3->Close();
+		sr4->Close();
+	}
+
+
 private: System::Void btnBookOpen_Click(System::Object^ sender, System::EventArgs^ e) {
 	pnlBook->Show();
 	FormatCount();
@@ -1296,9 +1804,53 @@ private: System::Void BtnAll_Click(System::Object^ sender, System::EventArgs^ e)
 }
 private: System::Void BtnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
 	specToFind = textBox1->Text;
-	
+	Delete(specToFind);
 	pnlBook->Hide();
+	OutputAll();
 	pnlShowResult->Show();
+}
+private: System::Void BtnEdit_Click(System::Object^ sender, System::EventArgs^ e) {
+	specToFind = textBox1->Text;
+	found(specToFind);
+	pnlBook->Hide();
+	pnlEdit->Show();
+	
+
+
+}
+private: System::Void BtnEditForm_Click(System::Object^ sender, System::EventArgs^ e) {
+	specToFind = textBox1->Text;
+	edit(specToFind);
+}
+private: System::Void TypeRastr1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+	if (typeRastr1->Checked) {
+		ChosenType1 = "Растровый";
+		typeVect1->Enabled = false;
+		btnEditForm->Enabled = true;
+
+	}
+	else {
+		btnEditForm->Enabled = false;
+		typeVect1->Enabled = true;
+	}
+}
+private: System::Void TypeVect1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+	if (typeVect1->Checked) {
+		ChosenType1 = "Векторный";
+		typeRastr1->Enabled = false;
+		btnEditForm->Enabled = true;
+
+	}
+	else {
+		btnEditForm->Enabled = false;
+		typeRastr1->Enabled = true;
+	}
+}
+
+
+private: System::Void BtnEditFormMenu1_Click(System::Object^ sender, System::EventArgs^ e) {
+	pnlEdit->Hide();
+	pnlBook->Show();
 }
 };
 }
