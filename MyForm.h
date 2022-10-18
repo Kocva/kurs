@@ -712,9 +712,9 @@ private: System::Windows::Forms::Button^ btnEditFormMenu1;
 			this->pnlAdd->Controls->Add(this->tbFormName);
 			this->pnlAdd->Controls->Add(this->btnAdd);
 			this->pnlAdd->Controls->Add(this->btnAddMenu);
-			this->pnlAdd->Location = System::Drawing::Point(967, 0);
+			this->pnlAdd->Location = System::Drawing::Point(2, 0);
 			this->pnlAdd->Name = L"pnlAdd";
-			this->pnlAdd->Size = System::Drawing::Size(142, 632);
+			this->pnlAdd->Size = System::Drawing::Size(701, 632);
 			this->pnlAdd->TabIndex = 13;
 			// 
 			// lblSzhat
@@ -734,6 +734,7 @@ private: System::Windows::Forms::Button^ btnEditFormMenu1;
 			this->tbSzhat->Name = L"tbSzhat";
 			this->tbSzhat->Size = System::Drawing::Size(393, 39);
 			this->tbSzhat->TabIndex = 38;
+			this->tbSzhat->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MyForm::TbSzhat_KeyPress);
 			// 
 			// lblColor
 			// 
@@ -752,6 +753,7 @@ private: System::Windows::Forms::Button^ btnEditFormMenu1;
 			this->tbColor->Name = L"tbColor";
 			this->tbColor->Size = System::Drawing::Size(393, 39);
 			this->tbColor->TabIndex = 36;
+			this->tbColor->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MyForm::TbColor_KeyPress);
 			// 
 			// typeVect
 			// 
@@ -796,6 +798,7 @@ private: System::Windows::Forms::Button^ btnEditFormMenu1;
 			this->tbProgramsSup->Name = L"tbProgramsSup";
 			this->tbProgramsSup->Size = System::Drawing::Size(393, 39);
 			this->tbProgramsSup->TabIndex = 22;
+			this->tbProgramsSup->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MyForm::TbProgramsSup_KeyPress);
 			// 
 			// lblPrograms
 			// 
@@ -814,6 +817,7 @@ private: System::Windows::Forms::Button^ btnEditFormMenu1;
 			this->tbRushFile->Name = L"tbRushFile";
 			this->tbRushFile->Size = System::Drawing::Size(393, 39);
 			this->tbRushFile->TabIndex = 20;
+			this->tbRushFile->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MyForm::TbRushFile_KeyPress);
 			// 
 			// lblRush
 			// 
@@ -842,6 +846,7 @@ private: System::Windows::Forms::Button^ btnEditFormMenu1;
 			this->tbFormName->Name = L"tbFormName";
 			this->tbFormName->Size = System::Drawing::Size(393, 39);
 			this->tbFormName->TabIndex = 17;
+			this->tbFormName->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MyForm::TbFormName_KeyPress);
 			// 
 			// btnAdd
 			// 
@@ -884,9 +889,9 @@ private: System::Windows::Forms::Button^ btnEditFormMenu1;
 			this->pnlShowResult->Controls->Add(this->tbRash);
 			this->pnlShowResult->Controls->Add(this->tbName);
 			this->pnlShowResult->Controls->Add(this->btnResultsToBook);
-			this->pnlShowResult->Location = System::Drawing::Point(1143, 1);
+			this->pnlShowResult->Location = System::Drawing::Point(2, 1);
 			this->pnlShowResult->Name = L"pnlShowResult";
-			this->pnlShowResult->Size = System::Drawing::Size(135, 632);
+			this->pnlShowResult->Size = System::Drawing::Size(701, 632);
 			this->pnlShowResult->TabIndex = 14;
 			// 
 			// tbType
@@ -980,9 +985,9 @@ private: System::Windows::Forms::Button^ btnEditFormMenu1;
 			this->pnlEdit->Controls->Add(this->tbFormName1);
 			this->pnlEdit->Controls->Add(this->btnEditForm);
 			this->pnlEdit->Controls->Add(this->btnEditFormMenu1);
-			this->pnlEdit->Location = System::Drawing::Point(1299, 0);
+			this->pnlEdit->Location = System::Drawing::Point(2, 0);
 			this->pnlEdit->Name = L"pnlEdit";
-			this->pnlEdit->Size = System::Drawing::Size(162, 633);
+			this->pnlEdit->Size = System::Drawing::Size(701, 633);
 			this->pnlEdit->TabIndex = 15;
 			// 
 			// lblSzhat1
@@ -1002,6 +1007,7 @@ private: System::Windows::Forms::Button^ btnEditFormMenu1;
 			this->tbSzhat1->Name = L"tbSzhat1";
 			this->tbSzhat1->Size = System::Drawing::Size(393, 39);
 			this->tbSzhat1->TabIndex = 38;
+			this->tbSzhat1->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MyForm::TbSzhat1_KeyPress);
 			// 
 			// lblColor1
 			// 
@@ -1020,6 +1026,7 @@ private: System::Windows::Forms::Button^ btnEditFormMenu1;
 			this->tbColor1->Name = L"tbColor1";
 			this->tbColor1->Size = System::Drawing::Size(393, 39);
 			this->tbColor1->TabIndex = 36;
+			this->tbColor1->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MyForm::TbColor1_KeyPress);
 			// 
 			// typeVect1
 			// 
@@ -1064,6 +1071,7 @@ private: System::Windows::Forms::Button^ btnEditFormMenu1;
 			this->tbProgramsSup1->Name = L"tbProgramsSup1";
 			this->tbProgramsSup1->Size = System::Drawing::Size(393, 39);
 			this->tbProgramsSup1->TabIndex = 22;
+			this->tbProgramsSup1->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MyForm::TbProgramsSup1_KeyPress);
 			// 
 			// lblPrograms1
 			// 
@@ -1082,6 +1090,7 @@ private: System::Windows::Forms::Button^ btnEditFormMenu1;
 			this->tbRushFile1->Name = L"tbRushFile1";
 			this->tbRushFile1->Size = System::Drawing::Size(393, 39);
 			this->tbRushFile1->TabIndex = 20;
+			this->tbRushFile1->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MyForm::TbRushFile1_KeyPress);
 			// 
 			// lblRush1
 			// 
@@ -1110,6 +1119,7 @@ private: System::Windows::Forms::Button^ btnEditFormMenu1;
 			this->tbFormName1->Name = L"tbFormName1";
 			this->tbFormName1->Size = System::Drawing::Size(393, 39);
 			this->tbFormName1->TabIndex = 17;
+			this->tbFormName1->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MyForm::TbFormName1_KeyPress);
 			// 
 			// btnEditForm
 			// 
@@ -1147,7 +1157,7 @@ private: System::Windows::Forms::Button^ btnEditFormMenu1;
 			// 
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
 			this->BackColor = System::Drawing::Color::WhiteSmoke;
-			this->ClientSize = System::Drawing::Size(1473, 640);
+			this->ClientSize = System::Drawing::Size(710, 640);
 			this->Controls->Add(this->pnlEdit);
 			this->Controls->Add(this->pnlShowResult);
 			this->Controls->Add(this->pnlAdd);
@@ -1851,6 +1861,95 @@ private: System::Void TypeVect1_CheckedChanged(System::Object^ sender, System::E
 private: System::Void BtnEditFormMenu1_Click(System::Object^ sender, System::EventArgs^ e) {
 	pnlEdit->Hide();
 	pnlBook->Show();
+}
+private: System::Void TbRushFile_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	auto l = e->KeyChar;
+	if ((l < 65 || l > 122) && l != '\b' && l != '.')
+	{
+		e->Handled = true;
+		MessageBox::Show("Не должно содержать цифр или латинских символов!");
+	}
+	if (tbRushFile->TextLength > tbFormName->TextLength) {
+		e->Handled = true;
+		MessageBox::Show("Не должно быть больше названия формата!");
+	}
+}
+
+private: System::Void TbFormName_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	auto l = e->KeyChar;
+	if ((l < 65 || l > 122) && l != '\b' && l != '.')
+	{
+		e->Handled = true;
+		MessageBox::Show("Не должно содержать цифр или латинских символов!");
+	}
+}
+private: System::Void TbProgramsSup_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	auto l = e->KeyChar;
+	if ((l < 65 || l > 122) && l != '\b' && l != '.')
+	{
+		e->Handled = true;
+		MessageBox::Show("Не должно содержать цифр или латинских символов!");
+	}
+}
+private: System::Void TbColor_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	auto l = e->KeyChar;
+	if ((l < 65 || l > 122) && l != '\b' && l != '.')
+	{
+		e->Handled = true;
+		MessageBox::Show("Не должно содержать цифр или латинских символов!");
+	}
+}
+private: System::Void TbSzhat_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	auto l = e->KeyChar;
+	if ((l < 65 || l > 122) && l != '\b' && l != '.')
+	{
+		e->Handled = true;
+		MessageBox::Show("Не должно содержать цифр или латинских символов!");
+	}
+}
+private: System::Void TbRushFile1_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	auto l = e->KeyChar;
+	if ((l < 65 || l > 122) && l != '\b' && l != '.')
+	{
+		e->Handled = true;
+		MessageBox::Show("Не должно содержать цифр или латинских символов!");
+	}
+	if (tbRushFile->TextLength > tbFormName->TextLength) {
+		e->Handled = true;
+		MessageBox::Show("Не должно быть больше названия формата!");
+	}
+}
+private: System::Void TbFormName1_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	auto l = e->KeyChar;
+	if ((l < 65 || l > 122) && l != '\b' && l != '.')
+	{
+		e->Handled = true;
+		MessageBox::Show("Не должно содержать цифр или латинских символов!");
+	}
+}
+private: System::Void TbProgramsSup1_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	auto l = e->KeyChar;
+	if ((l < 65 || l > 122) && l != '\b' && l != '.')
+	{
+		e->Handled = true;
+		MessageBox::Show("Не должно содержать цифр или латинских символов!");
+	}
+}
+private: System::Void TbColor1_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	auto l = e->KeyChar;
+	if ((l < 65 || l > 122) && l != '\b' && l != '.')
+	{
+		e->Handled = true;
+		MessageBox::Show("Не должно содержать цифр или латинских символов!");
+	}
+}
+private: System::Void TbSzhat1_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	auto l = e->KeyChar;
+	if ((l < 65 || l > 122) && l != '\b' && l != '.')
+	{
+		e->Handled = true;
+		MessageBox::Show("Не должно содержать цифр или латинских символов!");
+	}
 }
 };
 }
