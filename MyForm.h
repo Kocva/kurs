@@ -34,10 +34,11 @@ namespace Kks {
 			pnlAdd->Hide();
 			pnlEdit->Hide();
 			pnlShowResult->Hide();
-			tbHowTo->Enabled = false;
 			tbTask->Enabled = false;
 			lblinfo1->Hide();
 			lblinfo2->Hide();
+			lblinfo3->Hide();
+			lblinfo4->Hide();
 			//
 			//TODO: добавьте код конструктора
 			//
@@ -72,7 +73,7 @@ namespace Kks {
 	private: System::Windows::Forms::Label^ lblinfo2;
 	private: System::Windows::Forms::Panel^ pnlHowTo;
 	private: System::Windows::Forms::Button^ HowToMenu;
-	private: System::Windows::Forms::TextBox^ tbHowTo;
+
 	private: System::Windows::Forms::Panel^ pnlTask;
 	private: System::Windows::Forms::Button^ btnTaskMenu;
 	private: System::Windows::Forms::TextBox^ tbTask;
@@ -207,6 +208,11 @@ private: System::Windows::Forms::Label^ lblName1;
 private: System::Windows::Forms::TextBox^ tbFormName1;
 private: System::Windows::Forms::Button^ btnEditForm;
 private: System::Windows::Forms::Button^ btnEditFormMenu1;
+private: System::Windows::Forms::Label^ lblinfo4;
+private: System::Windows::Forms::Label^ lblinfo3;
+private: System::Windows::Forms::TextBox^ tbHowTo;
+
+
 
 
 
@@ -273,8 +279,8 @@ private: System::Windows::Forms::Button^ btnEditFormMenu1;
 			this->lblinfo1 = (gcnew System::Windows::Forms::Label());
 			this->lblinfo2 = (gcnew System::Windows::Forms::Label());
 			this->pnlHowTo = (gcnew System::Windows::Forms::Panel());
-			this->HowToMenu = (gcnew System::Windows::Forms::Button());
 			this->tbHowTo = (gcnew System::Windows::Forms::TextBox());
+			this->HowToMenu = (gcnew System::Windows::Forms::Button());
 			this->pnlTask = (gcnew System::Windows::Forms::Panel());
 			this->btnTaskMenu = (gcnew System::Windows::Forms::Button());
 			this->tbTask = (gcnew System::Windows::Forms::TextBox());
@@ -331,6 +337,8 @@ private: System::Windows::Forms::Button^ btnEditFormMenu1;
 			this->tbFormName1 = (gcnew System::Windows::Forms::TextBox());
 			this->btnEditForm = (gcnew System::Windows::Forms::Button());
 			this->btnEditFormMenu1 = (gcnew System::Windows::Forms::Button());
+			this->lblinfo4 = (gcnew System::Windows::Forms::Label());
+			this->lblinfo3 = (gcnew System::Windows::Forms::Label());
 			this->pnlHowTo->SuspendLayout();
 			this->pnlTask->SuspendLayout();
 			this->pnlBook->SuspendLayout();
@@ -454,12 +462,25 @@ private: System::Windows::Forms::Button^ btnEditFormMenu1;
 			// 
 			// pnlHowTo
 			// 
-			this->pnlHowTo->Controls->Add(this->HowToMenu);
+			this->pnlHowTo->BackColor = System::Drawing::SystemColors::Window;
 			this->pnlHowTo->Controls->Add(this->tbHowTo);
+			this->pnlHowTo->Controls->Add(this->HowToMenu);
+			this->pnlHowTo->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 15.75F, System::Drawing::FontStyle::Bold));
 			this->pnlHowTo->Location = System::Drawing::Point(2, 0);
 			this->pnlHowTo->Name = L"pnlHowTo";
 			this->pnlHowTo->Size = System::Drawing::Size(701, 633);
 			this->pnlHowTo->TabIndex = 10;
+			// 
+			// tbHowTo
+			// 
+			this->tbHowTo->Location = System::Drawing::Point(10, 12);
+			this->tbHowTo->Multiline = true;
+			this->tbHowTo->Name = L"tbHowTo";
+			this->tbHowTo->ReadOnly = true;
+			this->tbHowTo->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
+			this->tbHowTo->Size = System::Drawing::Size(664, 428);
+			this->tbHowTo->TabIndex = 7;
+			this->tbHowTo->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// HowToMenu
 			// 
@@ -476,17 +497,6 @@ private: System::Windows::Forms::Button^ btnEditFormMenu1;
 			this->HowToMenu->Text = L"Назад";
 			this->HowToMenu->UseVisualStyleBackColor = false;
 			this->HowToMenu->Click += gcnew System::EventHandler(this, &MyForm::HowToMenu_Click);
-			// 
-			// tbHowTo
-			// 
-			this->tbHowTo->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->tbHowTo->Location = System::Drawing::Point(10, 149);
-			this->tbHowTo->Multiline = true;
-			this->tbHowTo->Name = L"tbHowTo";
-			this->tbHowTo->Size = System::Drawing::Size(681, 150);
-			this->tbHowTo->TabIndex = 0;
-			this->tbHowTo->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// pnlTask
 			// 
@@ -520,6 +530,7 @@ private: System::Windows::Forms::Button^ btnEditFormMenu1;
 			this->tbTask->Location = System::Drawing::Point(12, 32);
 			this->tbTask->Multiline = true;
 			this->tbTask->Name = L"tbTask";
+			this->tbTask->ReadOnly = true;
 			this->tbTask->Size = System::Drawing::Size(681, 414);
 			this->tbTask->TabIndex = 0;
 			this->tbTask->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -897,7 +908,7 @@ private: System::Windows::Forms::Button^ btnEditFormMenu1;
 			// tbType
 			// 
 			this->tbType->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9.75F));
-			this->tbType->Location = System::Drawing::Point(504, 29);
+			this->tbType->Location = System::Drawing::Point(504, 30);
 			this->tbType->Multiline = true;
 			this->tbType->Name = L"tbType";
 			this->tbType->Size = System::Drawing::Size(100, 435);
@@ -906,7 +917,7 @@ private: System::Windows::Forms::Button^ btnEditFormMenu1;
 			// tbShat
 			// 
 			this->tbShat->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9.75F));
-			this->tbShat->Location = System::Drawing::Point(404, 29);
+			this->tbShat->Location = System::Drawing::Point(404, 30);
 			this->tbShat->Multiline = true;
 			this->tbShat->Name = L"tbShat";
 			this->tbShat->Size = System::Drawing::Size(100, 435);
@@ -926,7 +937,7 @@ private: System::Windows::Forms::Button^ btnEditFormMenu1;
 			// 
 			this->tbProg->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->tbProg->Location = System::Drawing::Point(204, 29);
+			this->tbProg->Location = System::Drawing::Point(204, 30);
 			this->tbProg->Multiline = true;
 			this->tbProg->Name = L"tbProg";
 			this->tbProg->Size = System::Drawing::Size(100, 435);
@@ -936,7 +947,7 @@ private: System::Windows::Forms::Button^ btnEditFormMenu1;
 			// 
 			this->tbRash->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->tbRash->Location = System::Drawing::Point(104, 29);
+			this->tbRash->Location = System::Drawing::Point(104, 30);
 			this->tbRash->Multiline = true;
 			this->tbRash->Name = L"tbRash";
 			this->tbRash->Size = System::Drawing::Size(100, 435);
@@ -946,7 +957,7 @@ private: System::Windows::Forms::Button^ btnEditFormMenu1;
 			// 
 			this->tbName->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->tbName->Location = System::Drawing::Point(4, 29);
+			this->tbName->Location = System::Drawing::Point(4, 30);
 			this->tbName->Multiline = true;
 			this->tbName->Name = L"tbName";
 			this->tbName->Size = System::Drawing::Size(100, 435);
@@ -1153,11 +1164,31 @@ private: System::Windows::Forms::Button^ btnEditFormMenu1;
 			this->btnEditFormMenu1->UseVisualStyleBackColor = false;
 			this->btnEditFormMenu1->Click += gcnew System::EventHandler(this, &MyForm::BtnEditFormMenu1_Click);
 			// 
+			// lblinfo4
+			// 
+			this->lblinfo4->AutoSize = true;
+			this->lblinfo4->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 15.75F, System::Drawing::FontStyle::Bold));
+			this->lblinfo4->Location = System::Drawing::Point(205, 182);
+			this->lblinfo4->Name = L"lblinfo4";
+			this->lblinfo4->Size = System::Drawing::Size(338, 30);
+			this->lblinfo4->TabIndex = 16;
+			this->lblinfo4->Text = L"Казарян Константин Степанович";
+			// 
+			// lblinfo3
+			// 
+			this->lblinfo3->AutoSize = true;
+			this->lblinfo3->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 15.75F, System::Drawing::FontStyle::Bold));
+			this->lblinfo3->Location = System::Drawing::Point(304, 213);
+			this->lblinfo3->Name = L"lblinfo3";
+			this->lblinfo3->Size = System::Drawing::Size(111, 30);
+			this->lblinfo3->TabIndex = 17;
+			this->lblinfo3->Text = L"ИСТБ-21-1";
+			// 
 			// MyForm
 			// 
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
 			this->BackColor = System::Drawing::Color::WhiteSmoke;
-			this->ClientSize = System::Drawing::Size(710, 640);
+			this->ClientSize = System::Drawing::Size(709, 640);
 			this->Controls->Add(this->pnlEdit);
 			this->Controls->Add(this->pnlShowResult);
 			this->Controls->Add(this->pnlAdd);
@@ -1172,6 +1203,8 @@ private: System::Windows::Forms::Button^ btnEditFormMenu1;
 			this->Controls->Add(this->btnHowTo);
 			this->Controls->Add(this->btnTask);
 			this->Controls->Add(this->btnAbout);
+			this->Controls->Add(this->lblinfo4);
+			this->Controls->Add(this->lblinfo3);
 			this->Name = L"MyForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Справочник";
@@ -1663,12 +1696,16 @@ private: System::Void btnAbout_Click(System::Object^ sender, System::EventArgs^ 
 	if (isShown) {
 		lblinfo1->Hide();
 		lblinfo2->Hide();
+		lblinfo3->Hide();
+		lblinfo4->Hide();
 		isShown = false;
 		btnAbout->Text = "О программе";
 	}
 	else {
 		lblinfo1->Show();
 		lblinfo2->Show();
+		lblinfo3->Show();
+		lblinfo4->Show();
 		isShown = true;
 		btnAbout->Text = "О программе (скрыть)";
 	}
